@@ -1,5 +1,13 @@
+:root{
+  --background-color: rgb(94, 97, 133);
+  --text-color: rgb(235, 229, 220);
+  --rotate-seconds: 0deg;
+  --rotate-minutes: 0deg;
+  --rotate-hours:70deg;
+}
+
 * {
-  box-sizing: border-box;
+ box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
@@ -21,5 +29,138 @@ nav ul {
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: rgb(134, 81, 107);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+}
+
+.title{
+  font-size: 60px;
+  font-weight: 800;
+}
+.text{
+  font-size: 24px;
+}
+
+.clock{
+  display: flex;
+  justify-content: center;
+  padding: 24px 32px 24px 32px;
+  border: 4px solid rgb(235, 229, 220);
+  border-radius: 16px;
+  gap: 100px;
+}
+.digital-container{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.border{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-image: linear-gradient(120deg, rgba(68, 29, 51, 0.774), rgb(121, 76, 96));
+  border: 8px solid rgb(124, 58, 89); 
+  box-shadow: 0 0 20px 4px rgba(185, 121, 155, 0.486);
+}
+
+.inner{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 265px;
+  height: 265px;
+  border-radius: 50%;
+  background-color: rgb(124, 58, 89);
+}
+
+.line-thick{
+  position: absolute;
+  width: 8px;
+  height: 265px;
+  background-color: wheat;
+}
+.line-fine {
+  position: absolute;
+  width: 4px;
+  height: 265px;
+  background-color: wheat;
+}
+
+.line-two{
+  rotate: 30deg;}
+
+.line-three{
+  rotate: 60deg;
+}
+
+.line-four{
+  rotate: 90deg;
+}
+
+.line-five{
+  rotate: 120deg;
+}
+
+.line-six{
+  rotate: 150deg;
+}
+.circle{
+  position: absolute;
+  width: 215px;
+  height: 215px;
+  background-color: rgb(124, 58, 89);
+  border-radius: 50%;
+}
+.small-circle{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(68, 29, 51, 0.993);
+  border-radius: 50%;
+}
+.hand{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.second-hand{
+  position: absolute;
+  top: 50px;
+  width: 4px;
+  height: 130px;
+  background-color: #d13166;
+  rotate: var(--rotate-seconds);
+  transform-origin: center bottom;
+}
+
+.minute-hand{
+  position: absolute;
+  width: 4px;
+  top: 70px;
+  height: 110px;
+  background-color: wheat;
+  rotate: var(--rotate-minutes);
+  transform-origin: center bottom;
+}
+
+.hour-hand{
+  position: absolute;
+  width: 7px;
+  border-radius: 3px;
+  top: 89px;
+  height: 90px;
+  background-color: wheat;
+  rotate: var(--rotate-hours);
+  transform-origin: center bottom;
 }
