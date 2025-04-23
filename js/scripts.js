@@ -11,71 +11,59 @@ const yearElement = document.getElementById('year');
 //CONSTANTES DE JS
 
 const weekDays = [
-	'Sunday',
-	'Monday',
-	'Tuesday',
-	'Wednesday',
-	'Thursday',
-	'Friday',
-	'Saturday'
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
 ];
 
 const months = [
-	'January',
-	'February',
-	'March',
-	'April',
-	'May',
-	'June',
-	'July',
-	'August',
-	'September',
-	'October',
-	'November',
-	'December'
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
 ];
 
 const getDigitalHour = () => {
-	setInterval(() => {
-		const date = new Date();
+  setInterval(() => {
+    const date = new Date();
 
-		const hours = date.getHours();
-		const minutes = date.getMinutes();
-		const seconds = date.getSeconds();
-		const month = date.getMonth();
-		const year = date.getFullYear();
-		const day = date.getDay();
-		const numberDay = date.getDate();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    const day = date.getDay();
+    const numberDay = date.getDate();
 
-		const getSecondsDegrees = seconds * 6;
-		const getMinutesDegrees = minutes * 6;
-		const getHoursDegrees = hours * 30;
+    const getSecondsDegrees = seconds * 6;
+    const getMinutesDegrees = minutes * 6 + seconds / 10;
+    const getHoursDegrees = hours * 30 + minutes / 2;
 
-		dayElement.textContent = weekDays[day];
-		monthElement.textContent = months[month];
-		yearElement.textContent = year;
+    const fixTime = number => String(number).padStart(2, 0);
 
-		if (hours < 10) {
-			hoursDigitalElement.textContent = `0${hours}`;
-		} else {
-			hoursDigitalElement.textContent = hours;
-		}
+    dayElement.textContent = weekDays[day];
+    monthElement.textContent = months[month];
+    yearElement.textContent = year;
 
-		if (minutes < 10) {
-			minutesDigitalElement.textContent = `0${minutes}`;
-		} else {
-			minutesDigitalElement.textContent = minutes;
-		}
+    hoursDigitalElement.textContent = fixTime(hours);
+    minutesDigitalElement.textContent = fixTime(minutes);
+    numberDayElement.textContent = fixTime(numberDay);
 
-		if (numberDay < 10) {
-			numberDayElement.textContent = `0${numberDay}`;
-		} else {
-			numberDayElement.textContent = numberDay;
-		}
-
-		rootStyles.setProperty('--rotate-seconds', `${getSecondsDegrees}deg`);
-		rootStyles.setProperty('--rotate-minutes', `${getMinutesDegrees}deg`);
-		rootStyles.setProperty('--rotate-hours', `${getHoursDegrees}deg`);
-	}, 1000);
+    rootStyles.setProperty('--rotate-seconds', `${getSecondsDegrees}deg`);
+    rootStyles.setProperty('--rotate-minutes', `${getMinutesDegrees}deg`);
+    rootStyles.setProperty('--rotate-hours', `${getHoursDegrees}deg`);
+  }, 1000);
 };
 getDigitalHour();

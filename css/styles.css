@@ -133,6 +133,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  left: calc(50%-2px);
 }
 .second-hand{
   position: absolute;
@@ -140,8 +141,9 @@ body {
   width: 4px;
   height: 130px;
   background-color: #d13166;
+  border-radius: 1px;
   rotate: var(--rotate-seconds);
-  transform-origin: center bottom;
+  transform-origin:  bottom;
 }
 
 .minute-hand{
@@ -149,9 +151,10 @@ body {
   width: 4px;
   top: 70px;
   height: 110px;
-  background-color: wheat;
+  background-color: rgb(212, 183, 130);
+  border-radius: 2px;
   rotate: var(--rotate-minutes);
-  transform-origin: center bottom;
+  transform-origin:  bottom;
 }
 
 .hour-hand{
@@ -162,5 +165,5 @@ body {
   height: 90px;
   background-color: wheat;
   rotate: var(--rotate-hours);
-  transform-origin: center bottom;
+  transform-origin:  bottom;
 }
